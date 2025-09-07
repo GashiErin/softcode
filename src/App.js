@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import SahgriLogo from './components/SahgriLogo';
 import './App.css';
 
 function App() {
@@ -55,15 +56,6 @@ function App() {
     }
   };
 
-  const scaleOnHover = {
-    hover: { scale: 1.05 },
-    transition: { duration: 0.3, ease: "easeInOut" }
-  };
-
-  const rotateOnHover = {
-    hover: { rotate: 5 },
-    transition: { duration: 0.3, ease: "easeInOut" }
-  };
 
   // Hero slideshow images
   const heroImages = [
@@ -89,7 +81,7 @@ function App() {
           <div className="container">
             <div className="contact-info">
               <span className="phone">+41 22 796 60 24</span>
-              <span className="email">info@alpinaigp.ch</span>
+              <span className="email">info@sahgri.ch</span>
             </div>
           </div>
         </div>
@@ -97,15 +89,15 @@ function App() {
         <nav className="navbar">
           <div className="container">
             <div className="nav-brand">
-              <h2>Alpina IGP</h2>
+              <SahgriLogo size="small" />
             </div>
             
-            <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+            <div className="nav-menu">
               <a href="#accueil" className="nav-link">Accueil</a>
               <a href="#qui-sommes-nous" className="nav-link">Qui sommes nous</a>
-              <a href="#plâtrerie" className="nav-link">Plâtrerie</a>
-              <a href="#isolation" className="nav-link">Isolation Thermique Extérieure</a>
-              <a href="#peinture" className="nav-link">Peinture</a>
+              <a href="#plâtrerie" className="nav-link">Plâtrerie & Peinture</a>
+              <a href="#etudes" className="nav-link">Études & Conseil</a>
+              <a href="#faux-plafonds" className="nav-link">Faux-plafonds</a>
               <a href="#faq" className="nav-link">FAQ</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
@@ -130,8 +122,8 @@ function App() {
               <motion.img
                 key={index}
                 src={image}
-                alt={`Construction Background ${index + 1}`}
-                className={`hero-bg-image ${index === currentSlide ? 'active' : ''}`}
+                alt="Construction Background"
+                className="hero-bg-image"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: index === currentSlide ? 1 : 0 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
@@ -145,7 +137,7 @@ function App() {
             {heroImages.map((_, index) => (
               <button
                 key={index}
-                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                className="indicator"
                 onClick={() => setCurrentSlide(index)}
               />
             ))}
@@ -207,6 +199,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              style={{ marginBottom: '30px' }}
+            >
+              <SahgriLogo size="large" />
+            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Découvrez Alpina IGP, une entreprise dédiée à la qualité et au respect des délais pour tous vos projets de rénovation et neuf.
+              Découvrez SAHGRI SARL, spécialisée dans la plâtrerie-peinture, faux-plafonds et revêtements acoustiques. Forte expérience dans l'exécution de projets de plusieurs milliers de m² pour des marchés publics et privés.
             </motion.p>
             <motion.button 
               className="cta-button"
@@ -243,8 +243,8 @@ function App() {
         </div>
       </section>
 
-      {/* Plâtrerie Section */}
-      <section id="plâtrerie" className="services-section" ref={servicesRef}>
+       {/* Plâtrerie Section */}
+       <section id="plâtrerie" className="services-section" ref={servicesRef}>
         <div className="container">
           <div className="section-content">
             <div className="service-layout">
@@ -255,8 +255,8 @@ function App() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2>Gypsage, cloisons sèches et faux plafonds</h2>
-                <p>Chez Alpina IGP, nous maîtrisons l'art de la plâtrerie depuis plus de 20 ans, en mettant notre savoir-faire au service de vos projets. Que vous souhaitiez rénover, moderniser ou créer, notre équipe d'experts est là pour donner vie à vos idées.</p>
+                 <h2>Plâtrerie-Peinture</h2>
+                 <p>SAHGRI SARL excelle dans l'exécution de projets de plâtrerie-peinture de plusieurs milliers de m². Notre équipe de vingtaine de collaborateurs maîtrise toutes les techniques de finition pour des projets de grande envergure.</p>
                 
                 <motion.div 
                   className="features"
@@ -270,24 +270,24 @@ function App() {
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Expertise de plus de 20 ans</h3>
-                    <p>Forts de plus de deux décennies d'expérience, nous avons perfectionné nos techniques pour garantir un rendu esthétique et durable.</p>
+                     <h3>Plus de 17 ans d'expérience</h3>
+                     <p>La direction possède une expérience de plus de 17 ans dans le domaine du second-œuvre, particulièrement appréciée des architectes, régies et administrations publiques.</p>
                   </motion.div>
                   <motion.div 
                     className="feature"
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Réactivité et efficacité</h3>
-                    <p>Nous traitons vos demandes avec rapidité, en assurant une prise en charge efficace pour respecter vos besoins et contraintes.</p>
+                     <h3>Projets de grande envergure</h3>
+                     <p>Capacité à prendre en charge de gros ouvrages : hôpitaux, centres administratifs, écoles, universités et banques. Exécution de projets de plusieurs milliers de m².</p>
                   </motion.div>
                   <motion.div 
                     className="feature"
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Respect des délais</h3>
-                    <p>La satisfaction client est notre priorité. C'est pourquoi nous nous engageons à respecter les délais convenus pour chaque projet.</p>
+                     <h3>Collaborations fournisseurs suisses</h3>
+                     <p>SAHGRI SARL collabore avec un grand nombre de fournisseurs suisses, ce qui permet d'apporter de la diversité dans les solutions proposées.</p>
                   </motion.div>
                 </motion.div>
                 
@@ -318,7 +318,7 @@ function App() {
               >
                 <motion.img 
                   src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center" 
-                  alt="Plâtrerie"
+                   alt="Plâtrerie"
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => openLightbox('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop&crop=center')}
@@ -329,7 +329,7 @@ function App() {
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span>Voir en détail</span>
+                   <span>Voir en détail</span>
                 </motion.div>
               </motion.div>
             </div>
@@ -337,8 +337,8 @@ function App() {
         </div>
       </section>
 
-      {/* Peinture Section */}
-      <section id="peinture" className="services-section alt">
+       {/* Faux-plafonds Section */}
+       <section id="faux-plafonds" className="services-section alt">
         <div className="container">
           <div className="section-content">
             <div className="service-layout reverse">
@@ -362,7 +362,7 @@ function App() {
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span>Voir en détail</span>
+                   <span>Voir en détail</span>
                 </motion.div>
               </motion.div>
               
@@ -373,8 +373,8 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <h2>Peinture et Décoration</h2>
-                <p>Notre équipe de spécialistes chez Alpina IGP vous accompagne dans tous vos projets de peinture et de décoration, en apportant une touche d'élégance et de personnalisation à chaque espace, intérieur comme extérieur.</p>
+                 <h2>Faux-plafonds et Revêtements Acoustiques</h2>
+                 <p>Notre expertise s'étend aux faux-plafonds métalliques, en fibre de bois et aux revêtements acoustiques. Nous proposons des solutions complètes pour l'amélioration de l'acoustique et l'esthétique de vos espaces.</p>
                 
                 <motion.ul 
                   className="service-list"
@@ -383,10 +383,10 @@ function App() {
                   whileInView="animate"
                   viewport={{ once: true }}
                 >
-                  <motion.li variants={fadeInUp}>Peinture intérieure et extérieure</motion.li>
-                  <motion.li variants={fadeInUp}>Revêtements muraux de qualité</motion.li>
-                  <motion.li variants={fadeInUp}>Application de papiers peints</motion.li>
-                  <motion.li variants={fadeInUp}>Décoration et finitions</motion.li>
+                   <motion.li variants={fadeInUp}>Faux-plafonds métalliques</motion.li>
+                   <motion.li variants={fadeInUp}>Faux-plafonds en fibre de bois</motion.li>
+                   <motion.li variants={fadeInUp}>Solutions acoustiques</motion.li>
+                   <motion.li variants={fadeInUp}>Revêtements acoustiques</motion.li>
                 </motion.ul>
                 
                 <div className="section-buttons">
@@ -411,8 +411,8 @@ function App() {
         </div>
       </section>
 
-      {/* Isolation Section */}
-      <section id="isolation" className="services-section">
+       {/* Études Section */}
+       <section id="etudes" className="services-section">
         <div className="container">
           <div className="section-content">
             <div className="service-layout">
@@ -423,8 +423,8 @@ function App() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2>Isolation Thermique Extérieure</h2>
-                <p>Chez Alpina IGP, nous vous proposons des solutions d'isolation thermique extérieure pour optimiser l'efficacité énergétique de vos bâtiments tout en apportant une touche esthétique. Réduisez vos déperditions de chaleur et améliorez le confort de votre habitat avec nos techniques éprouvées.</p>
+                 <h2>Études & Conseils</h2>
+                 <p>SAHGRI SARL réalise des études de projets et conseils dans les domaines de la plâtrerie-peinture et des faux-plafonds. Notre direction apporte son expertise de plus de 17 ans dans le domaine du second-œuvre.</p>
                 
                 <motion.div 
                   className="features"
@@ -438,24 +438,24 @@ function App() {
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Minimisation des déperditions de chaleur</h3>
-                    <p>Grâce à des matériaux performants et à des techniques de pose rigoureuses, nous limitons les déperditions thermiques pour une maison mieux isolée et plus confortable.</p>
+                     <h3>Projets publics et privés</h3>
+                     <p>Nous travaillons sur des projets variés : écoles, universités, hôpitaux, centres administratifs, banques, tribunaux, immeubles d'appartements et organisations internationales.</p>
                   </motion.div>
                   <motion.div 
                     className="feature"
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Optimisation de l'efficacité énergétique</h3>
-                    <p>Réduisez votre consommation d'énergie et faites des économies en optant pour une isolation extérieure qui améliore significativement l'efficacité énergétique de votre bâtiment.</p>
+                     <h3>Projets de référence</h3>
+                     <p>Parmi nos réalisations : Tribunal cantonal de l'Hermitage (CHF 800'000), Centre William Rappard - OMC Genève (CHF 8'000'000), École du Martinet - Rolle (CHF 470'000).</p>
                   </motion.div>
                   <motion.div 
                     className="feature"
                     variants={fadeInUp}
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
-                    <h3>Solutions créatives et esthétiques</h3>
-                    <p>Alliez performance et design grâce à une large palette de finitions et de styles pour harmoniser votre façade avec votre vision.</p>
+                     <h3>Reconnaissance professionnelle</h3>
+                     <p>Bien reconnus par les architectes, agences immobilières et administrations publiques pour la gestion de travaux de grande envergure.</p>
                   </motion.div>
                 </motion.div>
                 
@@ -497,7 +497,7 @@ function App() {
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span>Voir en détail</span>
+                   <span>Voir en détail</span>
                 </motion.div>
               </motion.div>
             </div>
@@ -515,8 +515,8 @@ function App() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2>Nos réalisations</h2>
-            <p>Découvrez quelques-uns de nos projets récents</p>
+             <h2>Nos réalisations</h2>
+             <p>Découvrez quelques-uns de nos projets récents</p>
           </motion.div>
           
           <motion.div 
@@ -545,8 +545,8 @@ function App() {
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3>Rénovation Complète</h3>
-                <p>Plâtrerie et peinture</p>
+                 <h3>Tribunal cantonal de l'Hermitage</h3>
+                 <p>Plâtrerie-peinture & Faux-plafonds - CHF 800'000</p>
               </motion.div>
             </motion.div>
             
@@ -569,8 +569,8 @@ function App() {
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3>Isolation Extérieure</h3>
-                <p>Rénovation énergétique</p>
+                 <h3>Centre William Rappard (OMC)</h3>
+                 <p>Plâtrerie & Cloisons - CHF 8'000'000</p>
               </motion.div>
             </motion.div>
             
@@ -593,8 +593,8 @@ function App() {
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3>Décoration Intérieure</h3>
-                <p>Peinture et finitions</p>
+                 <h3>École du Martinet - Rolle</h3>
+                 <p>Revêtements acoustiques - CHF 520'000</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -604,8 +604,8 @@ function App() {
       {/* Study Process Section */}
       <section className="study-process">
         <div className="container">
-          <h2>Réalisation d'étude</h2>
-          <p>Chez Alpina IGP, nous réalisons l'étude de vos projets pour une solution clés en main.</p>
+           <h2>Nos Réalisations de Référence</h2>
+           <p>Découvrez quelques-uns de nos projets majeurs réalisés pour des institutions publiques et privées.</p>
           
           <div className="process-steps">
             <motion.div 
@@ -618,12 +618,12 @@ function App() {
               <div className="step-image">
                 <img 
                   src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=300&h=200&fit=crop&crop=center" 
-                  alt="Métrés"
+                   alt="Mètres"
                 />
               </div>
               <div className="step-number">1</div>
-              <h3>Réalisation des métrés</h3>
-              <p>La première étape de notre étude consiste à effectuer des métrés précis. Nos spécialistes se déplacent sur site pour analyser les surfaces, prendre des mesures exactes et évaluer les contraintes spécifiques de votre projet.</p>
+               <h3>Centre William Rappard (OMC) - Genève</h3>
+               <p>Projet de CHF 8'000'000 - Organisation Mondiale du Commerce, Genève (2008-2014). Travaux de plâtrerie et cloisons pour ce centre international prestigieux.</p>
             </motion.div>
             <motion.div 
               className="step"
@@ -639,8 +639,8 @@ function App() {
                 />
               </div>
               <div className="step-number">2</div>
-              <h3>Réalisation de soumissions</h3>
-              <p>Sur la base des métrés, nous préparons une soumission complète et personnalisée. Nous détaillons les prestations prévues, les matériaux que nous utiliserons, ainsi que les techniques spécifiques adaptées à votre projet.</p>
+               <h3>Centre Scolaire de Perrosalle - Ollon</h3>
+               <p>Projet de CHF 470'000 - Centre scolaire d'Ollon (2023). Faux-plafonds métalliques et fibre de bois pour améliorer l'environnement éducatif.</p>
             </motion.div>
             <motion.div 
               className="step"
@@ -649,15 +649,21 @@ function App() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <div className="step-image">
+              <div className="step-number">3</div>
+              <h3>Tribunal cantonal de l'Hermitage - Lausanne</h3>
+              <p>Projet de CHF 800'000 - Tribunal cantonal de Lausanne (2022-2024). Travaux de plâtrerie-peinture et faux-plafonds pour ce bâtiment institutionnel important.</p>
+              <div className="project-images">
                 <img 
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" 
-                  alt="Calcul de prix"
+                  src="./foto1" 
+                  alt="Tribunal cantonal de l'Hermitage - Vue d'ensemble du chantier"
+                  onClick={() => openLightbox('./foto1')}
+                />
+                <img 
+                  src="./foto2" 
+                  alt="Tribunal cantonal de l'Hermitage - Escalier en spirale"
+                  onClick={() => openLightbox('./foto2')}
                 />
               </div>
-              <div className="step-number">3</div>
-              <h3>Calculation de prix</h3>
-              <p>Nous passons ensuite à la calculations des prix en tenant compte des spécificités de votre projet, des matériaux de qualité et des techniques requises.</p>
             </motion.div>
           </div>
         </div>
@@ -673,7 +679,7 @@ function App() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2>FAQ générale</h2>
+             <h2>FAQ générale</h2>
             <div className="faq-header-image">
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?w=400&h=300&fit=crop&crop=center" 
@@ -684,46 +690,46 @@ function App() {
           <div className="faq-container">
             <div className="faq-item">
               <div className="faq-question" onClick={() => toggleFaq(0)}>
-                <h3>Quels services propose Alpina IGP SA ?</h3>
-                <span className={`faq-toggle ${activeFaq === 0 ? 'active' : ''}`}>
-                  {activeFaq === 0 ? '−' : '+'}
+                <h3>Quels services propose SAHGRI SARL ?</h3>
+                <span className="faq-toggle">
+                  {activeFaq === 0 ? '' : '+'}
                 </span>
               </div>
-              <div className={`faq-answer ${activeFaq === 0 ? 'active' : ''}`}>
-                <p>Nous offrons des services de plâtrerie, peinture, isolation thermique extérieure et décoration.</p>
+              <div className="faq-answer">
+                 <p>Nous offrons des services de plâtrerie-peinture, faux-plafonds (métalliques, fibre de bois), revêtements acoustiques et études de projets pour des travaux de grande envergure.</p>
               </div>
             </div>
             <div className="faq-item">
               <div className="faq-question" onClick={() => toggleFaq(1)}>
-                <h3>Dans quelles régions opère Alpina IGP SA ?</h3>
-                <span className={`faq-toggle ${activeFaq === 1 ? 'active' : ''}`}>
-                  {activeFaq === 1 ? '−' : '+'}
+                 <h3>Dans quelles régions opère SAHGRI SARL ?</h3>
+                <span className="faq-toggle">
+                  {activeFaq === 1 ? '' : '+'}
                 </span>
               </div>
-              <div className={`faq-answer ${activeFaq === 1 ? 'active' : ''}`}>
-                <p>Nous intervenons principalement dans les cantons de Genève et de Vaud.</p>
+              <div className="faq-answer">
+                 <p>Nous intervenons principalement en Suisse romande, avec des projets dans les cantons de Genève, Vaud et autres régions. Notre siège est situé à Gland.</p>
               </div>
             </div>
             <div className="faq-item">
               <div className="faq-question" onClick={() => toggleFaq(2)}>
-                <h3>Comment contacter l'entreprise ?</h3>
-                <span className={`faq-toggle ${activeFaq === 2 ? 'active' : ''}`}>
-                  {activeFaq === 2 ? '−' : '+'}
+                 <h3>Quels types de projets réalisez-vous ?</h3>
+                <span className="faq-toggle">
+                  {activeFaq === 2 ? '' : '+'}
                 </span>
               </div>
-              <div className={`faq-answer ${activeFaq === 2 ? 'active' : ''}`}>
-                <p>Vous pouvez nous joindre par téléphone, par mail ou via leur formulaire de contact en ligne.</p>
+              <div className="faq-answer">
+                 <p>Nous travaillons sur des projets publics et privés : écoles, universités, hôpitaux, centres administratifs, banques, tribunaux, immeubles locatifs et organisations internationales.</p>
               </div>
             </div>
             <div className="faq-item">
               <div className="faq-question" onClick={() => toggleFaq(3)}>
-                <h3>Quelle est la philosophie d'Alpina IGP ?</h3>
-                <span className={`faq-toggle ${activeFaq === 3 ? 'active' : ''}`}>
-                  {activeFaq === 3 ? '−' : '+'}
+                 <h3>Quelle est l'expérience de votre équipe ?</h3>
+                <span className="faq-toggle">
+                  {activeFaq === 3 ? '' : '+'}
                 </span>
               </div>
-              <div className={`faq-answer ${activeFaq === 3 ? 'active' : ''}`}>
-                <p>Notre philosophie repose sur la réactivité, le respect des engagements et la qualité des prestations.</p>
+              <div className="faq-answer">
+                 <p>Notre équipe compte une vingtaine de collaborateurs. La direction possède une importante expérience dans l'exécution de projets de grandes envergures et est particulièrement appréciée des architectes, régies et administrations publiques.</p>
               </div>
             </div>
           </div>
@@ -736,7 +742,7 @@ function App() {
           <div className="contact-content">
             <div className="contact-info">
               <h2>Laisser un message</h2>
-              <p>Contactez-nous pour partager vos idées, poser vos questions ou demander un devis personnalisé. Nous sommes là pour vous aider !</p>
+               <p>Contactez-nous pour partager vos idées, poser vos questions ou demander un devis personnalisé. Nous sommes là pour vous aider !</p>
               
               <div className="contact-image">
                 <img 
@@ -751,12 +757,20 @@ function App() {
                   <p>+41 22 796 60 24</p>
                 </div>
                 <div className="contact-item">
+                  <h3>Contact Principal</h3>
+                  <p>Grillo Sonny - 079/672.88.18</p>
+                </div>
+                <div className="contact-item">
+                  <h3>Contact Secondaire</h3>
+                  <p>Sahiti Agron - 078/673.50.03</p>
+                </div>
+                <div className="contact-item">
                   <h3>Email</h3>
-                  <p>info@alpinaigp.ch</p>
+                  <p>info@sahgri.ch</p>
                 </div>
                 <div className="contact-item">
                   <h3>Adresse</h3>
-                  <p>Chemin du Château-Bloch 10, 1219 Vernier</p>
+                  <p>Avenue du Mont-Blanc 16, 1196 Gland</p>
                 </div>
               </div>
             </div>
@@ -771,7 +785,7 @@ function App() {
                 <input type="email" id="email" name="email" required />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Téléphone</label>
+                 <label htmlFor="phone">Téléphone</label>
                 <input type="tel" id="phone" name="phone" />
               </div>
               <div className="form-group">
@@ -780,7 +794,7 @@ function App() {
               </div>
               <div className="form-group checkbox-group">
                 <input type="checkbox" id="rgpd" name="rgpd" required />
-                <label htmlFor="rgpd">Oui, j'accepte la politique de confidentialité.</label>
+                 <label htmlFor="rgpd">Oui, j'accepte la politique de confidentialité.</label>
               </div>
               <button type="submit" className="submit-btn">Envoyer le message</button>
             </form>
@@ -800,9 +814,10 @@ function App() {
                   alt="Contact Footer"
                 />
               </div>
-              <p>Chemin du Château-Bloch 10, 1219 Vernier</p>
-              <p>+41 22 796 60 24</p>
-              <p>info@alpinaigp.ch</p>
+                   <p>Avenue du Mont-Blanc 16, 1196 Gland</p>
+              <p>Grillo Sonny - 079/672.88.18</p>
+              <p>Sahiti Agron - 078/673.50.03</p>
+              <p>info@sahgri.ch</p>
             </div>
             
             <div className="footer-section">
@@ -810,9 +825,9 @@ function App() {
               <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#qui-sommes-nous">Qui sommes nous</a></li>
-                <li><a href="#plâtrerie">Plâtrerie</a></li>
-                <li><a href="#isolation">Isolation Thermique Extérieure</a></li>
-                <li><a href="#peinture">Peinture</a></li>
+                 <li><a href="#plâtrerie">Plâtrerie</a></li>
+                 <li><a href="#etudes">Études & Conseil</a></li>
+                 <li><a href="#faux-plafonds">Faux-plafonds</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
@@ -822,14 +837,14 @@ function App() {
               <h3>Liens Utiles :</h3>
               <ul>
                 <li><a href="#sitemap">Sitemap</a></li>
-                <li><a href="#privacy">Politique de confidentialité</a></li>
-                <li><a href="#legal">Mentions légales</a></li>
+                 <li><a href="#privacy">Politique de confidentialité</a></li>
+                 <li><a href="#legal">Mentions légales</a></li>
               </ul>
             </div>
           </div>
           
           <div className="footer-bottom">
-            <p>Copyright © 2024 - Site créé et référencé par <strong>Digistylze</strong></p>
+             <p>Copyright © 2024 - Site créé et référencé par <strong>Digistylze</strong></p>
           </div>
         </div>
       </footer>
@@ -851,7 +866,7 @@ function App() {
             onClick={(e) => e.stopPropagation()}
           >
             <button className="lightbox-close" onClick={closeLightbox}>
-              ×
+              
             </button>
             <motion.img 
               src={selectedImage} 
