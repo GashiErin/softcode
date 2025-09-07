@@ -3,6 +3,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import SahgriLogo from './components/SahgriLogo';
 import './App.css';
+import foto1 from '../src/foto1.png';
+import foto2 from '../src/foto2.png';
+
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -654,14 +658,14 @@ function App() {
               <p>Projet de CHF 800'000 - Tribunal cantonal de Lausanne (2022-2024). Travaux de plâtrerie-peinture et faux-plafonds pour ce bâtiment institutionnel important.</p>
               <div className="project-images">
                 <img 
-                  src="./foto1" 
+                  src={foto1}
                   alt="Tribunal cantonal de l'Hermitage - Vue d'ensemble du chantier"
-                  onClick={() => openLightbox('./foto1')}
+                  onClick={() => openLightbox(foto1)}
                 />
                 <img 
-                  src="./foto2" 
+                  src={foto2} 
                   alt="Tribunal cantonal de l'Hermitage - Escalier en spirale"
-                  onClick={() => openLightbox('./foto2')}
+                  onClick={() => openLightbox(foto2)}
                 />
               </div>
             </motion.div>
@@ -737,68 +741,96 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <div className="container">
+      <section id="contact" className="contact-section" style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&h=1080&fit=crop&crop=center')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        position: "relative"
+      }}>
+        <div className="contact-overlay" style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          zIndex: 1
+        }}></div>
+        <div className="container" style={{ position: "relative", zIndex: 2, color: "white" }}>
           <div className="contact-content">
             <div className="contact-info">
-              <h2>Laisser un message</h2>
-               <p>Contactez-nous pour partager vos idées, poser vos questions ou demander un devis personnalisé. Nous sommes là pour vous aider !</p>
-              
-              <div className="contact-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=300&fit=crop&crop=center" 
-                  alt="Contact"
-                />
-              </div>
+              <h2 style={{ color: "white" }}>Laisser un message</h2>
+               <p style={{ color: "white" }}>Contactez-nous pour partager vos idées, poser vos questions ou demander un devis personnalisé. Nous sommes là pour vous aider !</p>
               
               <div className="contact-details">
                 <div className="contact-item">
-                  <h3>Téléphone</h3>
-                  <p>+41 22 796 60 24</p>
+                  <h3 style={{ color: "white" }}>Téléphone</h3>
+                  <p style={{ color: "white" }}>+41 22 796 60 24</p>
                 </div>
                 <div className="contact-item">
-                  <h3>Contact Principal</h3>
-                  <p>Grillo Sonny - 079/672.88.18</p>
+                  <h3 style={{ color: "white" }}>Contact Principal</h3>
+                  <p style={{ color: "white" }}>Grillo Sonny - 079/672.88.18</p>
                 </div>
                 <div className="contact-item">
-                  <h3>Contact Secondaire</h3>
-                  <p>Sahiti Agron - 078/673.50.03</p>
+                  <h3 style={{ color: "white" }}>Contact Secondaire</h3>
+                  <p style={{ color: "white" }}>Sahiti Agron - 078/673.50.03</p>
                 </div>
                 <div className="contact-item">
-                  <h3>Email</h3>
-                  <p>info@sahgri.ch</p>
+                  <h3 style={{ color: "white" }}>Email</h3>
+                  <p style={{ color: "white" }}>info@sahgri.ch</p>
                 </div>
                 <div className="contact-item">
-                  <h3>Adresse</h3>
-                  <p>Avenue du Mont-Blanc 16, 1196 Gland</p>
+                  <h3 style={{ color: "white" }}>Adresse</h3>
+                  <p style={{ color: "white" }}>Avenue du Mont-Blanc 16, 1196 Gland</p>
                 </div>
               </div>
             </div>
             
             <form className="contact-form" onSubmit={handleFormSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Nom *</label>
+                <label htmlFor="name" style={{ color: "white" }}>Nom *</label>
                 <input type="text" id="name" name="name" required />
               </div>
               <div className="form-group">
-                <label htmlFor="email">E-mail *</label>
+                <label htmlFor="email" style={{ color: "white" }}>E-mail *</label>
                 <input type="email" id="email" name="email" required />
               </div>
               <div className="form-group">
-                 <label htmlFor="phone">Téléphone</label>
+                 <label htmlFor="phone" style={{ color: "white" }}>Téléphone</label>
                 <input type="tel" id="phone" name="phone" />
               </div>
               <div className="form-group">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message" style={{ color: "white" }}>Message</label>
                 <textarea id="message" name="message" rows="5"></textarea>
               </div>
               <div className="form-group checkbox-group">
                 <input type="checkbox" id="rgpd" name="rgpd" required />
-                 <label htmlFor="rgpd">Oui, j'accepte la politique de confidentialité.</label>
+                 <label htmlFor="rgpd" style={{ color: "white" }}>Oui, j'accepte la politique de confidentialité.</label>
               </div>
               <button type="submit" className="submit-btn">Envoyer le message</button>
             </form>
           </div>
+          
+        </div>
+      </section>
+
+      {/* Full-width Map Section */}
+      <section className="map-section">
+        <div className="container">
+          <h3>Notre localisation</h3>
+        </div>
+        <div className="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29032.382469299147!2d6.244010775429639!3d46.42285626610425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c4362156f23bf%3A0x1e4d33455f3b6e!2sAv.%20du%20Mont-Blanc%2016%2C%201196%20Gland%2C%20Zvic%C3%ABr!5e0!3m2!1ssq!2s!4v1757288738337!5m2!1ssq!2s" 
+            width="100%" 
+            height="450" 
+            style={{border:0}} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="SAHGRI SARL Location Map"
+          ></iframe>
         </div>
       </section>
 
