@@ -1,3 +1,4 @@
+
 import foto9 from '../src/foto9.png';
 import foto10 from '../src/foto10.png';
 import foto11 from '../src/foto11.png';
@@ -340,9 +341,34 @@ function App() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                 <h2>Plâtrerie-Peinture</h2>
-                 <p>SAHGRI SARL excelle dans l'exécution de projets de plâtrerie-peinture de plusieurs milliers de m². Notre équipe de vingtaine de collaborateurs maîtrise toutes les techniques de finition pour des projets de grande envergure.</p>
-                
+                {isMobile && (
+                  <motion.div 
+                    className="service-image"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    style={{ width: '100%', maxWidth: '420px', margin: '0 auto 18px auto', background: '#fff', padding: '18px', borderRadius: '18px', boxShadow: '0 2px 16px rgba(44,62,80,0.08)' }}
+                  >
+                    <motion.img 
+                      src={foto12} 
+                      alt="Projet Plâtrerie"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                      onClick={() => openLightbox(foto12)}
+                      style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto', borderRadius: '14px' }}
+                    />
+                    <motion.div 
+                      className="image-overlay"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                       <span>Voir en détail</span>
+                    </motion.div>
+                  </motion.div>
+                )}
+                <h2>Plâtrerie-Peinture</h2>
+                <p>SAHGRI SARL excelle dans l'exécution de projets de plâtrerie-peinture de plusieurs milliers de m². Notre équipe de vingtaine de collaborateurs maîtrise toutes les techniques de finition pour des projets de grande envergure.</p>
                 <motion.div 
                   className="features"
                   variants={staggerContainer}
@@ -352,7 +378,6 @@ function App() {
                 >
                   <motion.div 
                     className="feature"
-
                     whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   >
                      <h3>Plus de 17 ans d'expérience</h3>
@@ -373,7 +398,6 @@ function App() {
                      <p>SAHGRI SARL collabore avec un grand nombre de fournisseurs suisses, ce qui permet d'apporter de la diversité dans les solutions proposées.</p>
                   </motion.div>
                 </motion.div>
-                
                 <div className="section-buttons">
                   <motion.button 
                     className="btn-primary"
@@ -392,30 +416,43 @@ function App() {
                   </motion.button>
                 </div>
               </motion.div>
-              
-              <motion.div 
-                className="service-image"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <motion.img 
-                  src={foto12} 
-                  alt="Projet Plâtrerie"
-                  whileHover={{ scale: 1.05, rotate: 2 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => openLightbox(foto12)}
-                />
-                <motion.div 
-                  className="image-overlay"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                   <span>Voir en détail</span>
-                </motion.div>
-              </motion.div>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 24,
+                width: '100%',
+                marginTop: 24
+              }}>
+                {!isMobile && (
+                  <motion.div 
+                    className="service-image"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    style={{ width: '100%', maxWidth: '420px', margin: '0 auto', background: '#fff', padding: '1px', borderRadius: '1px', boxShadow: '0 2px 16px rgba(44,62,80,0.08)' }}
+                  >
+                    <motion.img 
+                      src={foto12} 
+                      alt="Projet Plâtrerie"
+                      whileHover={{ scale: 1.05, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                      onClick={() => openLightbox(foto12)}
+                      style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto', borderRadius: '14px' }}
+                    />
+                    <motion.div 
+                      className="image-overlay"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                       <span>Voir en détail</span>
+                    </motion.div>
+                  </motion.div>
+                )}
+
+              </div>
             </div>
           </div>
         </div>
@@ -791,7 +828,11 @@ function App() {
             <div style={{marginTop: 36}}>
               <div style={{display:'flex',alignItems:'center',gap:18,marginBottom:10}}>
                 <span style={{fontSize:22, color:'#ff6b35'}}>📞</span>
-                <span style={{fontWeight:600, color:'#2c3e50'}}>+41 22 796 60 24</span>
+                <span style={{fontWeight:600, color:'#2c3e50'}}>079/672 88 18</span>
+              </div>
+              <div style={{display:'flex',alignItems:'center',gap:18,marginBottom:10}}>
+                <span style={{fontSize:22, color:'#ff6b35'}}>📞</span>
+                <span style={{fontWeight:600, color:'#2c3e50'}}>078/673 50 03</span>
               </div>
               <div style={{display:'flex',alignItems:'center',gap:18,marginBottom:10}}>
                 <span style={{fontSize:22, color:'#3b82f6'}}>✉️</span>

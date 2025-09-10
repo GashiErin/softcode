@@ -1311,6 +1311,7 @@ body {
   height: 400px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 14px;
 }
 
 .image-overlay {
