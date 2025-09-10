@@ -849,7 +849,7 @@ function App() {
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29032.382469299147!2d6.244010775429639!3d46.42285626610425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c4362156f23bf%3A0x1e4d33455f3b6e!2sAv.%20du%20Mont-Blanc%2016%2C%201196%20Gland%2C%20Zvic%C3%ABr!5e0!3m2!1ssq!2s!4v1757288738337!5m2!1ssq!2s" 
             width="100%" 
-            height="450" 
+            height="550" 
             style={{border:0}} 
             allowFullScreen="" 
             loading="lazy" 
