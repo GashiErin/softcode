@@ -2023,3 +2023,23 @@ html {
 .mb-40 {
   margin-bottom: 40px;
 }
+
+/* Mobile adjustments for service sections: place image above text and enlarge image */
+@media (max-width: 700px) {
+  .service-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .service-layout.reverse {
+    direction: ltr;
+  }
+  .service-image {
+    order: -1;
+    width: 100%;
+  }
+  .service-image img {
+    height: 320px !important;
+    max-height: 65vh;
+  }
+}
